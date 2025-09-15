@@ -67,7 +67,7 @@
          <checkConstraint constraint="(exception_type = ANY (ARRAY[1, 2]))" name="calendar_dates_exception_type_check"/>
       </table>
       <table name="fare_attributes" remarks="運賃属性情報" schema="public" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="fare_id" nullable="false" remarks="運賃 ID" size="64" type="varchar" typeCode="12">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="fare_id" nullable="false" remarks="運賃ID" size="64" type="varchar" typeCode="12">
             <child column="fare_id" foreignKey="fare_rules_fare_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="fare_rules"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="2" id="1" name="price" nullable="false" remarks="運賃" size="10" type="numeric" typeCode="2"/>
@@ -83,7 +83,7 @@
          <checkConstraint constraint="(transfers = ANY (ARRAY[0, 1, 2, NULL::integer]))" name="fare_attributes_transfers_check"/>
       </table>
       <table name="fare_rules" remarks="運賃定義情報" schema="public" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="fare_id" nullable="false" remarks="運賃 ID" size="64" type="varchar" typeCode="12">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="fare_id" nullable="false" remarks="運賃ID" size="64" type="varchar" typeCode="12">
             <parent column="fare_id" foreignKey="fare_rules_fare_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="fare_attributes"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="route_id" nullable="true" remarks="経路ID" size="64" type="varchar" typeCode="12">
@@ -96,10 +96,14 @@
             <parent column="stop_id" foreignKey="fare_rules_destination_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="stops"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="contains_id" nullable="true" remarks="通過ゾーン" size="64" type="varchar" typeCode="12"/>
+         <primaryKey column="fare_id" sequenceNumberInPK="1"/>
+         <index name="fare_rules_pkey" unique="true">
+            <column ascending="true" name="fare_id"/>
+         </index>
       </table>
       <table name="feed_info" remarks="提供情報" schema="public" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="feed_publisher_name" nullable="false" remarks="提供組織名" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="feed_publisher_url" nullable="false" remarks="提供組織 URL" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="feed_publisher_url" nullable="false" remarks="提供組織URL" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="'ja'::character varying" digits="0" id="2" name="feed_lang" nullable="false" remarks="【固定】提供言語" size="8" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="feed_start_date" nullable="true" remarks="有効期間開始日" size="8" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="feed_end_date" nullable="true" remarks="有効期間終了日" size="8" type="varchar" typeCode="12"/>
@@ -175,12 +179,12 @@
          </index>
       </table>
       <table name="stop_times" remarks="通過時刻情報" schema="public" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="trip_id" nullable="false" remarks="便 ID" size="64" type="varchar" typeCode="12">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="trip_id" nullable="false" remarks="便ID" size="64" type="varchar" typeCode="12">
             <parent column="trip_id" foreignKey="stop_times_trip_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="trips"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="arrival_time" nullable="false" remarks="到着時刻" size="8" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="departure_time" nullable="false" remarks="出発時刻" size="8" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="stop_id" nullable="false" remarks="標柱 ID" size="64" type="varchar" typeCode="12">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="stop_id" nullable="false" remarks="標柱ID" size="64" type="varchar" typeCode="12">
             <parent column="stop_id" foreignKey="stop_times_stop_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="stops"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="stop_sequence" nullable="false" remarks="通過順位" size="10" type="int4" typeCode="4"/>
@@ -189,6 +193,12 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="drop_off_type" nullable="true" remarks="降車区分" size="5" type="int2" typeCode="5"/>
          <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="shape_dist_traveled" nullable="true" remarks="通算距離" size="17" type="float8" typeCode="8"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="timepoint" nullable="true" remarks="発着時間精度" size="5" type="int2" typeCode="5"/>
+         <primaryKey column="trip_id" sequenceNumberInPK="1"/>
+         <primaryKey column="stop_sequence" sequenceNumberInPK="2"/>
+         <index name="stop_times_pkey" unique="true">
+            <column ascending="true" name="trip_id"/>
+            <column ascending="true" name="stop_sequence"/>
+         </index>
          <checkConstraint constraint="(drop_off_type = ANY (ARRAY[0, 1, 2, 3]))" name="stop_times_drop_off_type_check"/>
          <checkConstraint constraint="(pickup_type = ANY (ARRAY[0, 1, 2, 3]))" name="stop_times_pickup_type_check"/>
       </table>
@@ -222,11 +232,17 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="from_stop_id" nullable="false" remarks="乗換元標柱ID" size="64" type="varchar" typeCode="12">
             <parent column="stop_id" foreignKey="transfers_from_stop_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="stops"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="to_stop_id" nullable="false" remarks="乗換先標柱 ID" size="64" type="varchar" typeCode="12">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="to_stop_id" nullable="false" remarks="乗換先標柱ID" size="64" type="varchar" typeCode="12">
             <parent column="stop_id" foreignKey="transfers_to_stop_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="stops"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="transfer_type" nullable="false" remarks="乗換タイプ" size="5" type="int2" typeCode="5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="min_transfer_time" nullable="true" remarks="乗換時間" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="from_stop_id" sequenceNumberInPK="1"/>
+         <primaryKey column="to_stop_id" sequenceNumberInPK="2"/>
+         <index name="transfers_pkey" unique="true">
+            <column ascending="true" name="from_stop_id"/>
+            <column ascending="true" name="to_stop_id"/>
+         </index>
          <checkConstraint constraint="(transfer_type = ANY (ARRAY[0, 1, 2, 3]))" name="transfers_transfer_type_check"/>
       </table>
       <table name="translations" remarks="翻訳情報" schema="public" type="TABLE">
@@ -234,9 +250,19 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="field_name" nullable="false" remarks="フィールド名" size="64" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="language" nullable="false" remarks="言語" size="8" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="translation" nullable="false" remarks="翻訳先言語" size="128" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="record_id" nullable="true" remarks="" size="64" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="record_sub_id" nullable="true" remarks="" size="64" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="field_value" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="record_id" nullable="false" remarks="" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="record_sub_id" nullable="false" remarks="" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="field_value" nullable="false" remarks="" size="128" type="varchar" typeCode="12"/>
+         <primaryKey column="language" sequenceNumberInPK="1"/>
+         <primaryKey column="record_id" sequenceNumberInPK="2"/>
+         <primaryKey column="record_sub_id" sequenceNumberInPK="3"/>
+         <primaryKey column="field_value" sequenceNumberInPK="4"/>
+         <index name="translations_pkey" unique="true">
+            <column ascending="true" name="language"/>
+            <column ascending="true" name="record_id"/>
+            <column ascending="true" name="record_sub_id"/>
+            <column ascending="true" name="field_value"/>
+         </index>
          <checkConstraint constraint="((table_name)::text = ANY ((ARRAY['agency'::character varying, 'stops'::character varying, 'routes'::character varying, 'trips'::character varying, 'stop̲times'::character varying, 'feed̲info'::character varying])::text[]))" name="translations_table_name_check"/>
       </table>
       <table name="trips" remarks="便情報" schema="public" type="TABLE">

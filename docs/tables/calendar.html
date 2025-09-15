@@ -104,7 +104,7 @@
                                     id="standard_table"
                                     class="table table-bordered table-striped dataTable"
                                     role="grid"
-                                    data-paging="true"
+                                    data-paging="false"
                                     data-page-length="10"
                                     data-length-change="false">
                                 <thead align='left'>
@@ -314,7 +314,7 @@
                                     id="indexes_table"
                                     class="table table-bordered table-striped dataTable"
                                     role="grid"
-                                    data-paging="true"
+                                    data-paging="false"
                                     data-page-length="10"
                                     data-length-change="false">
                                 <thead>
@@ -350,7 +350,7 @@
                                     id="check_table"
                                     class="table table-bordered table-striped dataTable"
                                     role="grid"
-                                    data-paging="true"
+                                    data-paging="false"
                                     data-page-length="10"
                                     data-length-change="false">
                                 <thead align='left'>
@@ -369,12 +369,12 @@
                                     <td>(thursday &#61; ANY (ARRAY[0, 1]))</td>
                                 </tr>
                                 <tr>
-                                    <td>calendar_saturday_check</td>
-                                    <td>(saturday &#61; ANY (ARRAY[0, 1]))</td>
+                                    <td>calendar_wednesday_check</td>
+                                    <td>(wednesday &#61; ANY (ARRAY[0, 1]))</td>
                                 </tr>
                                 <tr>
-                                    <td>calendar_friday_check</td>
-                                    <td>(friday &#61; ANY (ARRAY[0, 1]))</td>
+                                    <td>calendar_saturday_check</td>
+                                    <td>(saturday &#61; ANY (ARRAY[0, 1]))</td>
                                 </tr>
                                 <tr>
                                     <td>calendar_sunday_check</td>
@@ -385,8 +385,8 @@
                                     <td>(monday &#61; ANY (ARRAY[0, 1]))</td>
                                 </tr>
                                 <tr>
-                                    <td>calendar_wednesday_check</td>
-                                    <td>(wednesday &#61; ANY (ARRAY[0, 1]))</td>
+                                    <td>calendar_friday_check</td>
+                                    <td>(friday &#61; ANY (ARRAY[0, 1]))</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -424,7 +424,7 @@
                 </section>
                 <script>
                     var config = {
-                        pagination: true
+                        pagination: false
                     }
                 </script>
             </div>

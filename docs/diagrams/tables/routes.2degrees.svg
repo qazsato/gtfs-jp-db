@@ -77,7 +77,7 @@
 <text text-anchor="start" x="661.5" y="-625.3" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="#000000">fare_rules</text>
 <text text-anchor="start" x="727.5437" y="-624.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">[table]</text>
 <polygon fill="none" stroke="#000000" points="656.5,-594.7 656.5,-616.7 762.5,-616.7 762.5,-594.7 656.5,-594.7"/>
-<image xlink:href="../../images/foreignKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="661.5" y="-611.7"/>
+<image xlink:href="../../images/primaryKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="661.5" y="-611.7"/>
 <text text-anchor="start" x="676.5" y="-601.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">fare_id</text>
 <polygon fill="none" stroke="#000000" points="656.5,-572.7 656.5,-594.7 762.5,-594.7 762.5,-572.7 656.5,-572.7"/>
 <image xlink:href="../../images/foreignKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="661.5" y="-589.7"/>
@@ -165,9 +165,10 @@
 <!-- fare_rules&#45;&gt;fare_attributes -->
 <g id="edge3" class="edge">
 <title>fare_rules:w&#45;&gt;fare_attributes:e</title>
-<path fill="none" stroke="#000000" d="M642.2874,-608.7279C623.883,-617.5645 620.6061,-642.7 594,-642.7"/>
-<polygon fill="#000000" stroke="#000000" points="648.6756,-607.367 657.2501,-609.221 652.5878,-606.5335 656.5,-605.7 656.5,-605.7 656.5,-605.7 652.5878,-606.5335 655.7499,-602.179 648.6756,-607.367 648.6756,-607.367"/>
-<ellipse fill="none" stroke="#000000" cx="645.5458" cy="-608.0338" rx="3.2" ry="3.2"/>
+<path fill="none" stroke="#000000" d="M646.1619,-607.1963C624.2151,-614.1184 622.3715,-642.7 594,-642.7"/>
+<polygon fill="#000000" stroke="#000000" points="655.1353,-601.8558 656.2812,-609.7734 654.6977,-610.0025 653.5518,-602.085 655.1353,-601.8558"/>
+<polyline fill="none" stroke="#000000" points="656.5,-605.7 652.5412,-606.273 "/>
+<ellipse fill="none" stroke="#000000" cx="649.3742" cy="-606.7314" rx="3.2" ry="3.2"/>
 </g>
 <!-- routes -->
 <g id="node6" class="node">

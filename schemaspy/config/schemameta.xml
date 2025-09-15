@@ -1,4 +1,10 @@
 <schemaMeta xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://schemaspy.org/xsd/6/schemameta.xsd" >
+    <comments>
+GTFS-JP(第3版)のスキーマ情報
+
+- [静的バス情報フォーマット（GTFS-JP）仕様書［第 3 版］](https://www.mlit.go.jp/sogoseisaku/transport/content/001419163.pdf)
+- [公共交通政策：技術資料（仕様書、ガイドライン） - 国土交通省](https://www.mlit.go.jp/sogoseisaku/transport/sosei_transport_tk_000112.html)
+    </comments>
     <tables>
     </tables>
 </schemaMeta>

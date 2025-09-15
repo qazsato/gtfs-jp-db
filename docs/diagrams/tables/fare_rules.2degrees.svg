@@ -20,7 +20,7 @@
 <text text-anchor="start" x="519.5" y="-342.3" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="#000000">fare_rules</text>
 <text text-anchor="start" x="646.5437" y="-341.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">[table]</text>
 <polygon fill="none" stroke="#000000" points="514.5,-311.7 514.5,-333.7 620.5,-333.7 620.5,-311.7 514.5,-311.7"/>
-<image xlink:href="../../images/foreignKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="519.5" y="-328.7"/>
+<image xlink:href="../../images/primaryKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="519.5" y="-328.7"/>
 <text text-anchor="start" x="534.5" y="-318.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">fare_id</text>
 <polygon fill="none" stroke="#000000" points="620.5,-311.7 620.5,-333.7 681.5,-333.7 681.5,-311.7 620.5,-311.7"/>
 <text text-anchor="start" x="623.494" y="-319.4" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">varchar[64]</text>
@@ -125,9 +125,10 @@
 <!-- fare_rules&#45;&gt;fare_attributes -->
 <g id="edge2" class="edge">
 <title>fare_rules:w&#45;&gt;fare_attributes:e</title>
-<path fill="none" stroke="#000000" d="M499.9193,-322.7C484.1309,-322.7 475.5417,-322.7 454.5,-322.7"/>
-<polygon fill="#000000" stroke="#000000" points="506.5,-322.7001 514.5,-326.3 510.5,-322.7 514.5,-322.7 514.5,-322.7 514.5,-322.7 510.5,-322.7 514.5,-319.1 506.5,-322.7001 506.5,-322.7001"/>
-<ellipse fill="none" stroke="#000000" cx="503.3" cy="-322.7001" rx="3.2" ry="3.2"/>
+<path fill="none" stroke="#000000" d="M504.0701,-322.7C485.4885,-322.7 477.3125,-322.7 454.5,-322.7"/>
+<polygon fill="#000000" stroke="#000000" points="513.7,-318.7 513.7,-326.7 512.1,-326.7 512.1,-318.7 513.7,-318.7"/>
+<polyline fill="none" stroke="#000000" points="514.5,-322.7 510.5,-322.7 "/>
+<ellipse fill="none" stroke="#000000" cx="507.3" cy="-322.7001" rx="3.2" ry="3.2"/>
 </g>
 <!-- routes -->
 <g id="node4" class="node">

@@ -20,7 +20,7 @@
 <text text-anchor="start" x="265" y="-172.3" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="#000000">fare_rules</text>
 <text text-anchor="start" x="331.0437" y="-171.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">[table]</text>
 <polygon fill="none" stroke="#000000" points="260,-141.7 260,-163.7 366,-163.7 366,-141.7 260,-141.7"/>
-<image xlink:href="../../images/foreignKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="265" y="-158.7"/>
+<image xlink:href="../../images/primaryKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="265" y="-158.7"/>
 <text text-anchor="start" x="280" y="-148.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">fare_id</text>
 <polygon fill="none" stroke="#000000" points="260,-119.7 260,-141.7 366,-141.7 366,-119.7 260,-119.7"/>
 <image xlink:href="../../images/foreignKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="265" y="-136.7"/>
@@ -132,9 +132,10 @@
 <!-- fare_rules&#45;&gt;fare_attributes -->
 <g id="edge2" class="edge">
 <title>fare_rules:w&#45;&gt;fare_attributes:e</title>
-<path fill="none" stroke="#000000" d="M245.7292,-154.8787C186.019,-176.1922 293.0271,-346.7 209.5,-346.7"/>
-<polygon fill="#000000" stroke="#000000" points="252.0916,-153.9074 260.5433,-156.2588 256.0458,-153.3037 260,-152.7 260,-152.7 260,-152.7 256.0458,-153.3037 259.4567,-149.1412 252.0916,-153.9074 252.0916,-153.9074"/>
-<ellipse fill="none" stroke="#000000" cx="248.9283" cy="-154.3904" rx="3.2" ry="3.2"/>
+<path fill="none" stroke="#000000" d="M249.2661,-153.8393C181.9392,-169.7382 294.5933,-346.7 209.5,-346.7"/>
+<polygon fill="#000000" stroke="#000000" points="258.7823,-148.8068 259.6267,-156.7621 258.0356,-156.931 257.1912,-148.9757 258.7823,-148.8068"/>
+<polyline fill="none" stroke="#000000" points="260,-152.7 256.0223,-153.1222 "/>
+<ellipse fill="none" stroke="#000000" cx="252.8402" cy="-153.46" rx="3.2" ry="3.2"/>
 </g>
 <!-- routes -->
 <g id="node4" class="node">

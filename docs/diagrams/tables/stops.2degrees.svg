@@ -20,7 +20,7 @@
 <text text-anchor="start" x="444.5" y="-533.3" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="#000000">fare_rules</text>
 <text text-anchor="start" x="510.5437" y="-532.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">[table]</text>
 <polygon fill="none" stroke="#000000" points="439.5,-502.7 439.5,-524.7 545.5,-524.7 545.5,-502.7 439.5,-502.7"/>
-<image xlink:href="../../images/foreignKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="444.5" y="-519.7"/>
+<image xlink:href="../../images/primaryKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="444.5" y="-519.7"/>
 <text text-anchor="start" x="459.5" y="-509.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">fare_id</text>
 <polygon fill="none" stroke="#000000" points="439.5,-480.7 439.5,-502.7 545.5,-502.7 545.5,-480.7 439.5,-480.7"/>
 <image xlink:href="../../images/foreignKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="444.5" y="-497.7"/>
@@ -160,9 +160,10 @@
 <!-- fare_rules&#45;&gt;fare_attributes -->
 <g id="edge2" class="edge">
 <title>fare_rules:w&#45;&gt;fare_attributes:e</title>
-<path fill="none" stroke="#000000" d="M425.011,-514.0859C382.5141,-516.4337 367.5033,-528.7 318.5,-528.7"/>
-<polygon fill="#000000" stroke="#000000" points="431.5028,-513.913 439.5959,-517.2987 435.5014,-513.8065 439.5,-513.7 439.5,-513.7 439.5,-513.7 435.5014,-513.8065 439.4041,-510.1013 431.5028,-513.913 431.5028,-513.913"/>
-<ellipse fill="none" stroke="#000000" cx="428.304" cy="-513.9982" rx="3.2" ry="3.2"/>
+<path fill="none" stroke="#000000" d="M428.9431,-513.9007C383.3908,-515.6807 368.9851,-528.7 318.5,-528.7"/>
+<polygon fill="#000000" stroke="#000000" points="438.6241,-509.7159 438.7762,-517.7145 437.1765,-517.7449 437.0244,-509.7464 438.6241,-509.7159"/>
+<polyline fill="none" stroke="#000000" points="439.5,-513.7 435.5007,-513.7761 "/>
+<ellipse fill="none" stroke="#000000" cx="432.3013" cy="-513.8369" rx="3.2" ry="3.2"/>
 </g>
 <!-- routes -->
 <g id="node4" class="node">
@@ -198,28 +199,31 @@
 <g id="node5" class="node">
 <title>stop_times</title>
 <g id="a_node5"><a xlink:href="../../tables/stop_times.html" xlink:title="stop_times" target="_top">
-<polygon fill="#ffffff" stroke="transparent" points="423,-79.2 423,-184.2 562,-184.2 562,-79.2 423,-79.2"/>
+<polygon fill="#ffffff" stroke="transparent" points="423,-57.2 423,-184.2 562,-184.2 562,-57.2 423,-57.2"/>
 <polygon fill="#f5f5f5" stroke="transparent" points="423.5,-160.7 423.5,-183.7 562.5,-183.7 562.5,-160.7 423.5,-160.7"/>
 <polygon fill="none" stroke="#000000" points="423.5,-160.7 423.5,-183.7 562.5,-183.7 562.5,-160.7 423.5,-160.7"/>
 <text text-anchor="start" x="428.5" y="-169.3" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="#000000">stop_times</text>
 <text text-anchor="start" x="527.5437" y="-168.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">[table]</text>
 <polygon fill="none" stroke="#000000" points="423.5,-138.7 423.5,-160.7 562.5,-160.7 562.5,-138.7 423.5,-138.7"/>
-<image xlink:href="../../images/foreignKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="428.5" y="-155.7"/>
+<image xlink:href="../../images/primaryKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="428.5" y="-155.7"/>
 <text text-anchor="start" x="443.5" y="-145.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">trip_id</text>
 <polygon fill="none" stroke="#000000" points="423.5,-116.7 423.5,-138.7 562.5,-138.7 562.5,-116.7 423.5,-116.7"/>
 <image xlink:href="../../images/foreignKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="428.5" y="-133.7"/>
 <text text-anchor="start" x="443.5" y="-123.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">stop_id</text>
-<polygon fill="none" stroke="#000000" points="423.5,-97.7 423.5,-116.7 562.5,-116.7 562.5,-97.7 423.5,-97.7"/>
-<text text-anchor="start" x="426.5" y="-103.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">...</text>
-<polygon fill="#ffffff" stroke="transparent" points="423.5,-78.7 423.5,-97.7 491.5,-97.7 491.5,-78.7 423.5,-78.7"/>
-<polygon fill="none" stroke="#000000" points="423.5,-78.7 423.5,-97.7 491.5,-97.7 491.5,-78.7 423.5,-78.7"/>
-<text text-anchor="start" x="426.5" y="-84.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">&lt; 2</text>
-<polygon fill="#ffffff" stroke="transparent" points="491.5,-78.7 491.5,-97.7 526.5,-97.7 526.5,-78.7 491.5,-78.7"/>
-<polygon fill="none" stroke="#000000" points="491.5,-78.7 491.5,-97.7 526.5,-97.7 526.5,-78.7 491.5,-78.7"/>
-<text text-anchor="start" x="517.3862" y="-84.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000"> &#160;</text>
-<polygon fill="#ffffff" stroke="transparent" points="526.5,-78.7 526.5,-97.7 562.5,-97.7 562.5,-78.7 526.5,-78.7"/>
-<polygon fill="none" stroke="#000000" points="526.5,-78.7 526.5,-97.7 562.5,-97.7 562.5,-78.7 526.5,-78.7"/>
-<text text-anchor="start" x="553.3862" y="-84.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000"> &#160;</text>
+<polygon fill="none" stroke="#000000" points="423.5,-94.7 423.5,-116.7 562.5,-116.7 562.5,-94.7 423.5,-94.7"/>
+<image xlink:href="../../images/primaryKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="428.5" y="-111.7"/>
+<text text-anchor="start" x="443.5" y="-101.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">stop_sequence</text>
+<polygon fill="none" stroke="#000000" points="423.5,-75.7 423.5,-94.7 562.5,-94.7 562.5,-75.7 423.5,-75.7"/>
+<text text-anchor="start" x="426.5" y="-81.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">...</text>
+<polygon fill="#ffffff" stroke="transparent" points="423.5,-56.7 423.5,-75.7 491.5,-75.7 491.5,-56.7 423.5,-56.7"/>
+<polygon fill="none" stroke="#000000" points="423.5,-56.7 423.5,-75.7 491.5,-75.7 491.5,-56.7 423.5,-56.7"/>
+<text text-anchor="start" x="426.5" y="-62.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">&lt; 2</text>
+<polygon fill="#ffffff" stroke="transparent" points="491.5,-56.7 491.5,-75.7 526.5,-75.7 526.5,-56.7 491.5,-56.7"/>
+<polygon fill="none" stroke="#000000" points="491.5,-56.7 491.5,-75.7 526.5,-75.7 526.5,-56.7 491.5,-56.7"/>
+<text text-anchor="start" x="517.3862" y="-62.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000"> &#160;</text>
+<polygon fill="#ffffff" stroke="transparent" points="526.5,-56.7 526.5,-75.7 562.5,-75.7 562.5,-56.7 526.5,-56.7"/>
+<polygon fill="none" stroke="#000000" points="526.5,-56.7 526.5,-75.7 562.5,-75.7 562.5,-56.7 526.5,-56.7"/>
+<text text-anchor="start" x="553.3862" y="-62.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000"> &#160;</text>
 </a>
 </g>
 </g>
@@ -277,10 +281,10 @@
 <text text-anchor="start" x="432.5" y="-363.3" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="#000000">transfers</text>
 <text text-anchor="start" x="522.5437" y="-362.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">[table]</text>
 <polygon fill="none" stroke="#000000" points="427.5,-332.7 427.5,-354.7 557.5,-354.7 557.5,-332.7 427.5,-332.7"/>
-<image xlink:href="../../images/foreignKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="432.5" y="-349.7"/>
+<image xlink:href="../../images/primaryKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="432.5" y="-349.7"/>
 <text text-anchor="start" x="447.5" y="-339.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">from_stop_id</text>
 <polygon fill="none" stroke="#000000" points="427.5,-310.7 427.5,-332.7 557.5,-332.7 557.5,-310.7 427.5,-310.7"/>
-<image xlink:href="../../images/foreignKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="432.5" y="-327.7"/>
+<image xlink:href="../../images/primaryKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="432.5" y="-327.7"/>
 <text text-anchor="start" x="447.5" y="-317.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">to_stop_id</text>
 <polygon fill="none" stroke="#000000" points="427.5,-291.7 427.5,-310.7 557.5,-310.7 557.5,-291.7 427.5,-291.7"/>
 <text text-anchor="start" x="430.5" y="-297.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">...</text>
