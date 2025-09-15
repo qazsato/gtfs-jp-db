@@ -7,7 +7,7 @@
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agency_name" nullable="false" remarks="事業者名称" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agency_url" nullable="false" remarks="事業者URL" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="'Asia/Tokyo'::character varying" digits="0" id="3" name="agency_timezone" nullable="false" remarks="【固定】タイムゾーン" size="32" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'Asia/Tokyo'::character varying" digits="0" id="3" name="agency_timezone" nullable="false" remarks="【固定】タイムゾーン" size="16" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="'ja'::character varying" digits="0" id="4" name="agency_lang" nullable="false" remarks="【固定】言語" size="8" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="agency_phone" nullable="true" remarks="電話番号" size="32" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="agency_fare_url" nullable="true" remarks="オンライン購入URL" size="2147483647" type="text" typeCode="12"/>
@@ -22,7 +22,7 @@
             <parent column="agency_id" foreignKey="agency_jp_agency_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="agency"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agency_official_name" nullable="true" remarks="事業者正式名称" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agency_zip_number" nullable="true" remarks="事業者郵便番号" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="agency_zip_number" nullable="true" remarks="事業者郵便番号" size="7" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="agency_address" nullable="true" remarks="事業者住所" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="agency_president_pos" nullable="true" remarks="代表者肩書" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="agency_president_name" nullable="true" remarks="代表者氏名" size="2147483647" type="text" typeCode="12"/>
@@ -48,6 +48,13 @@
          <index name="calendar_pkey" unique="true">
             <column ascending="true" name="service_id"/>
          </index>
+         <checkConstraint constraint="(friday = ANY (ARRAY[0, 1]))" name="calendar_friday_check"/>
+         <checkConstraint constraint="(monday = ANY (ARRAY[0, 1]))" name="calendar_monday_check"/>
+         <checkConstraint constraint="(saturday = ANY (ARRAY[0, 1]))" name="calendar_saturday_check"/>
+         <checkConstraint constraint="(sunday = ANY (ARRAY[0, 1]))" name="calendar_sunday_check"/>
+         <checkConstraint constraint="(thursday = ANY (ARRAY[0, 1]))" name="calendar_thursday_check"/>
+         <checkConstraint constraint="(tuesday = ANY (ARRAY[0, 1]))" name="calendar_tuesday_check"/>
+         <checkConstraint constraint="(wednesday = ANY (ARRAY[0, 1]))" name="calendar_wednesday_check"/>
       </table>
       <table name="calendar_dates" remarks="運行日情報" schema="public" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="service_id" nullable="false" remarks="運行日ID" size="64" type="varchar" typeCode="12"/>
@@ -57,6 +64,7 @@
          <index name="calendar_dates_pkey" unique="true">
             <column ascending="true" name="service_id"/>
          </index>
+         <checkConstraint constraint="(exception_type = ANY (ARRAY[1, 2]))" name="calendar_dates_exception_type_check"/>
       </table>
       <table name="fare_attributes" remarks="運賃属性情報" schema="public" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="fare_id" nullable="false" remarks="運賃 ID" size="64" type="varchar" typeCode="12">
@@ -65,12 +73,14 @@
          <column autoUpdated="false" defaultValue="null" digits="2" id="1" name="price" nullable="false" remarks="運賃" size="10" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="'JPY'::character varying" digits="0" id="2" name="currency_type" nullable="false" remarks="【固定】通貨" size="3" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="payment_method" nullable="false" remarks="支払いタイミング" size="5" type="int2" typeCode="5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="transfers" nullable="false" remarks="乗換" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="transfers" nullable="true" remarks="乗換" size="5" type="int2" typeCode="5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="transfer_duration" nullable="true" remarks="乗換有効期限" size="10" type="int4" typeCode="4"/>
          <primaryKey column="fare_id" sequenceNumberInPK="1"/>
          <index name="fare_attributes_pkey" unique="true">
             <column ascending="true" name="fare_id"/>
          </index>
+         <checkConstraint constraint="(payment_method = ANY (ARRAY[0, 1]))" name="fare_attributes_payment_method_check"/>
+         <checkConstraint constraint="(transfers = ANY (ARRAY[0, 1, 2, NULL::integer]))" name="fare_attributes_transfers_check"/>
       </table>
       <table name="fare_rules" remarks="運賃定義情報" schema="public" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="fare_id" nullable="false" remarks="運賃 ID" size="64" type="varchar" typeCode="12">
@@ -99,10 +109,11 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="trip_id" nullable="false" remarks="便ID" size="64" type="varchar" typeCode="12">
             <parent column="trip_id" foreignKey="frequencies_trip_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="trips"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="start_time" nullable="false" remarks="開始時刻" size="16" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="end_time" nullable="false" remarks="終了時刻" size="16" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="start_time" nullable="false" remarks="開始時刻" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="end_time" nullable="false" remarks="終了時刻" size="8" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="headway_secs" nullable="false" remarks="運行間隔" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="exact_times" nullable="true" remarks="案内精度" size="5" type="int2" typeCode="5"/>
+         <checkConstraint constraint="(exact_times = ANY (ARRAY[0, 1]))" name="frequencies_exact_times_check"/>
       </table>
       <table name="office_jp" remarks="営業所情報" schema="public" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="office_id" nullable="false" remarks="営業所ID" size="64" type="varchar" typeCode="12">
@@ -120,7 +131,7 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="jp_pattern_id" nullable="false" remarks="停車パターンID" size="64" type="varchar" typeCode="12">
             <child column="jp_pattern_id" foreignKey="trips_jp_pattern_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="trips"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="route_update_date" nullable="true" remarks="ダイヤ改正日" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="route_update_date" nullable="true" remarks="ダイヤ改正日" size="8" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="origin_stop" nullable="true" remarks="起点" size="64" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="via_stop" nullable="true" remarks="経過地" size="64" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="destination_stop" nullable="true" remarks="終点" size="64" type="varchar" typeCode="12"/>
@@ -137,8 +148,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="agency_id" nullable="false" remarks="事業者ID" size="64" type="varchar" typeCode="12">
             <parent column="agency_id" foreignKey="routes_agency_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="agency"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="route_short_name" nullable="false" remarks="経路略称" size="64" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="route_long_name" nullable="false" remarks="経路名" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="route_short_name" nullable="true" remarks="経路略称" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="route_long_name" nullable="true" remarks="経路名" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="route_desc" nullable="true" remarks="経路情報" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="3" digits="0" id="5" name="route_type" nullable="false" remarks="【固定】経路タイプ" size="5" type="int2" typeCode="5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="route_url" nullable="true" remarks="経路URL" size="2147483647" type="text" typeCode="12"/>
@@ -167,8 +178,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="trip_id" nullable="false" remarks="便 ID" size="64" type="varchar" typeCode="12">
             <parent column="trip_id" foreignKey="stop_times_trip_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="trips"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="arrival_time" nullable="false" remarks="到着時刻" size="16" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="departure_time" nullable="false" remarks="出発時刻" size="16" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="arrival_time" nullable="false" remarks="到着時刻" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="departure_time" nullable="false" remarks="出発時刻" size="8" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="stop_id" nullable="false" remarks="標柱 ID" size="64" type="varchar" typeCode="12">
             <parent column="stop_id" foreignKey="stop_times_stop_id_fkey" implied="false" onDeleteCascade="false" schema="public" table="stops"/>
          </column>
@@ -178,6 +189,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="drop_off_type" nullable="true" remarks="降車区分" size="5" type="int2" typeCode="5"/>
          <column autoUpdated="false" defaultValue="null" digits="17" id="8" name="shape_dist_traveled" nullable="true" remarks="通算距離" size="17" type="float8" typeCode="8"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="timepoint" nullable="true" remarks="発着時間精度" size="5" type="int2" typeCode="5"/>
+         <checkConstraint constraint="(drop_off_type = ANY (ARRAY[0, 1, 2, 3]))" name="stop_times_drop_off_type_check"/>
+         <checkConstraint constraint="(pickup_type = ANY (ARRAY[0, 1, 2, 3]))" name="stop_times_pickup_type_check"/>
       </table>
       <table name="stops" remarks="停留所・標柱情報" schema="public" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="stop_id" nullable="false" remarks="停留所・標柱ID" size="64" type="varchar" typeCode="12">
@@ -190,16 +203,15 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="stop_code" nullable="true" remarks="停留所・標柱番号" size="64" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="stop_name" nullable="false" remarks="停留所・標柱名称" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="stop_desc" nullable="true" remarks="停留所・標柱付加情報" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="agency_address" nullable="true" remarks="事業者住所" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="stop_lat" nullable="false" remarks="緯度" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="17" id="6" name="stop_lon" nullable="false" remarks="経度" size="17" type="float8" typeCode="8"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="zone_id" nullable="true" remarks="運賃エリアID" size="64" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="stop_url" nullable="true" remarks="停留所・標柱URL" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="location_type" nullable="false" remarks="停留所・標柱区分" size="5" type="int2" typeCode="5"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="parent_station" nullable="true" remarks="親停留所情報" size="64" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="stop_timezone" nullable="true" remarks="タイムゾーン" size="32" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="wheelchair_boarding" nullable="true" remarks="車椅子情報" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="platform_code" nullable="true" remarks="のりば情報" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="4" name="stop_lat" nullable="false" remarks="緯度" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="17" id="5" name="stop_lon" nullable="false" remarks="経度" size="17" type="float8" typeCode="8"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="zone_id" nullable="true" remarks="運賃エリアID" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="stop_url" nullable="true" remarks="停留所・標柱URL" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="location_type" nullable="false" remarks="停留所・標柱区分" size="5" type="int2" typeCode="5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="parent_station" nullable="true" remarks="親停留所情報" size="64" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="stop_timezone" nullable="true" remarks="タイムゾーン" size="16" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="wheelchair_boarding" nullable="true" remarks="車椅子情報" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="platform_code" nullable="true" remarks="のりば情報" size="64" type="varchar" typeCode="12"/>
          <primaryKey column="stop_id" sequenceNumberInPK="1"/>
          <index name="stops_pkey" unique="true">
             <column ascending="true" name="stop_id"/>
@@ -215,15 +227,17 @@
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="transfer_type" nullable="false" remarks="乗換タイプ" size="5" type="int2" typeCode="5"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="min_transfer_time" nullable="true" remarks="乗換時間" size="10" type="int4" typeCode="4"/>
+         <checkConstraint constraint="(transfer_type = ANY (ARRAY[0, 1, 2, 3]))" name="transfers_transfer_type_check"/>
       </table>
       <table name="translations" remarks="翻訳情報" schema="public" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="table_name" nullable="false" remarks="テーブル名" size="64" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="field_name" nullable="false" remarks="フィールド名" size="64" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="language" nullable="false" remarks="言語" size="8" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="translation" nullable="false" remarks="翻訳先言語" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="translation" nullable="false" remarks="翻訳先言語" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="record_id" nullable="true" remarks="" size="64" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="record_sub_id" nullable="true" remarks="" size="64" type="varchar" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="field_value" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="field_value" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
+         <checkConstraint constraint="((table_name)::text = ANY ((ARRAY['agency'::character varying, 'stops'::character varying, 'routes'::character varying, 'trips'::character varying, 'stop̲times'::character varying, 'feed̲info'::character varying])::text[]))" name="translations_table_name_check"/>
       </table>
       <table name="trips" remarks="便情報" schema="public" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="trip_id" nullable="false" remarks="便ID" size="64" type="varchar" typeCode="12">
@@ -257,6 +271,9 @@
          <index name="trips_pkey" unique="true">
             <column ascending="true" name="trip_id"/>
          </index>
+         <checkConstraint constraint="(bikes_allowed = ANY (ARRAY[0, 1, 2]))" name="trips_bikes_allowed_check"/>
+         <checkConstraint constraint="(direction_id = ANY (ARRAY[0, 1]))" name="trips_direction_id_check"/>
+         <checkConstraint constraint="(wheelchair_accessible = ANY (ARRAY[0, 1, 2]))" name="trips_wheelchair_accessible_check"/>
       </table>
    </tables>
 </database>

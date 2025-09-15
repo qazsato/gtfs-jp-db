@@ -421,9 +421,99 @@
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td><a href='tables/calendar_dates.html'>calendar_dates</a></td>
+                                        <td>calendar_dates_exception_type_check</td>
+                                        <td>(exception_type &#61; ANY (ARRAY[1, 2]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/frequencies.html'>frequencies</a></td>
+                                        <td>frequencies_exact_times_check</td>
+                                        <td>(exact_times &#61; ANY (ARRAY[0, 1]))</td>
+                                    </tr>
+                                    <tr>
                                         <td><a href='tables/stops.html'>stops</a></td>
                                         <td>stops_location_type_check</td>
                                         <td>(location_type &#61; ANY (ARRAY[0, 1]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/trips.html'>trips</a></td>
+                                        <td>trips_bikes_allowed_check</td>
+                                        <td>(bikes_allowed &#61; ANY (ARRAY[0, 1, 2]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/trips.html'>trips</a></td>
+                                        <td>trips_direction_id_check</td>
+                                        <td>(direction_id &#61; ANY (ARRAY[0, 1]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/trips.html'>trips</a></td>
+                                        <td>trips_wheelchair_accessible_check</td>
+                                        <td>(wheelchair_accessible &#61; ANY (ARRAY[0, 1, 2]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/translations.html'>translations</a></td>
+                                        <td>translations_table_name_check</td>
+                                        <td>((table_name)::text &#61; ANY ((ARRAY[&#39;agency&#39;::character varying, &#39;stops&#39;::character varying, &#39;routes&#39;::character varying, &#39;trips&#39;::character varying, &#39;stop̲times&#39;::character varying, &#39;feed̲info&#39;::character varying])::text[]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/fare_attributes.html'>fare_attributes</a></td>
+                                        <td>fare_attributes_payment_method_check</td>
+                                        <td>(payment_method &#61; ANY (ARRAY[0, 1]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/fare_attributes.html'>fare_attributes</a></td>
+                                        <td>fare_attributes_transfers_check</td>
+                                        <td>(transfers &#61; ANY (ARRAY[0, 1, 2, NULL::integer]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/stop_times.html'>stop_times</a></td>
+                                        <td>stop_times_drop_off_type_check</td>
+                                        <td>(drop_off_type &#61; ANY (ARRAY[0, 1, 2, 3]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/stop_times.html'>stop_times</a></td>
+                                        <td>stop_times_pickup_type_check</td>
+                                        <td>(pickup_type &#61; ANY (ARRAY[0, 1, 2, 3]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/calendar.html'>calendar</a></td>
+                                        <td>calendar_friday_check</td>
+                                        <td>(friday &#61; ANY (ARRAY[0, 1]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/calendar.html'>calendar</a></td>
+                                        <td>calendar_monday_check</td>
+                                        <td>(monday &#61; ANY (ARRAY[0, 1]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/calendar.html'>calendar</a></td>
+                                        <td>calendar_saturday_check</td>
+                                        <td>(saturday &#61; ANY (ARRAY[0, 1]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/calendar.html'>calendar</a></td>
+                                        <td>calendar_sunday_check</td>
+                                        <td>(sunday &#61; ANY (ARRAY[0, 1]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/calendar.html'>calendar</a></td>
+                                        <td>calendar_thursday_check</td>
+                                        <td>(thursday &#61; ANY (ARRAY[0, 1]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/calendar.html'>calendar</a></td>
+                                        <td>calendar_tuesday_check</td>
+                                        <td>(tuesday &#61; ANY (ARRAY[0, 1]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/calendar.html'>calendar</a></td>
+                                        <td>calendar_wednesday_check</td>
+                                        <td>(wednesday &#61; ANY (ARRAY[0, 1]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/transfers.html'>transfers</a></td>
+                                        <td>transfers_transfer_type_check</td>
+                                        <td>(transfer_type &#61; ANY (ARRAY[0, 1, 2, 3]))</td>
                                     </tr>
                                 </tbody>
                             </table>

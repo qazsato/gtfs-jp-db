@@ -146,7 +146,7 @@
                                 <tr>
                                     <td><span id="arrival_time">arrival_time</span></td>
                                     <td>varchar</td>
-                                    <td>16</td>
+                                    <td>8</td>
                                     <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -163,7 +163,7 @@
                                 <tr>
                                     <td><span id="departure_time">departure_time</span></td>
                                     <td>varchar</td>
-                                    <td>16</td>
+                                    <td>8</td>
                                     <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -300,6 +300,42 @@
                                         </table>
                                     </td>
                                     <td><p>発着時間精度</p></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 class="box-title">Check Constraints</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="check_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Constraint</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>stop_times_drop_off_type_check</td>
+                                    <td>(drop_off_type &#61; ANY (ARRAY[0, 1, 2, 3]))</td>
+                                </tr>
+                                <tr>
+                                    <td>stop_times_pickup_type_check</td>
+                                    <td>(pickup_type &#61; ANY (ARRAY[0, 1, 2, 3]))</td>
                                 </tr>
                                 </tbody>
                             </table>

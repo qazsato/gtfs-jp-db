@@ -31,7 +31,7 @@
 <polygon fill="none" stroke="#000000" points="182,-125.2 182,-147.2 346,-147.2 346,-125.2 182,-125.2"/>
 <text text-anchor="start" x="202" y="-132.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">agency_zip_number</text>
 <polygon fill="none" stroke="#000000" points="346,-125.2 346,-147.2 436,-147.2 436,-125.2 346,-125.2"/>
-<text text-anchor="start" x="348.5043" y="-132.9" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">text[2147483647]</text>
+<text text-anchor="start" x="349" y="-132.9" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">varchar[7]</text>
 <polygon fill="none" stroke="#000000" points="182,-103.2 182,-125.2 346,-125.2 346,-103.2 182,-103.2"/>
 <text text-anchor="start" x="202" y="-110.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">agency_address</text>
 <polygon fill="none" stroke="#000000" points="346,-103.2 346,-125.2 436,-125.2 436,-103.2 346,-103.2"/>
