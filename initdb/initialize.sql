@@ -207,13 +207,14 @@ CREATE TABLE stop_times (
   shape_dist_traveled DOUBLE PRECISION,
   timepoint SMALLINT
 );
+ALTER TABLE stop_times ADD PRIMARY KEY (trip_id, stop_sequence);
 ALTER TABLE stop_times ADD FOREIGN KEY (trip_id) REFERENCES trips (trip_id);
 ALTER TABLE stop_times ADD FOREIGN KEY (stop_id) REFERENCES stops (stop_id);
 COMMENT ON TABLE stop_times IS '通過時刻情報';
-COMMENT ON COLUMN stop_times.trip_id IS '便 ID';
+COMMENT ON COLUMN stop_times.trip_id IS '便ID';
 COMMENT ON COLUMN stop_times.arrival_time IS '到着時刻';
 COMMENT ON COLUMN stop_times.departure_time IS '出発時刻';
-COMMENT ON COLUMN stop_times.stop_id IS '標柱 ID';
+COMMENT ON COLUMN stop_times.stop_id IS '標柱ID';
 COMMENT ON COLUMN stop_times.stop_sequence IS '通過順位';
 COMMENT ON COLUMN stop_times.stop_headsign IS '停留所行先';
 COMMENT ON COLUMN stop_times.pickup_type IS '乗車区分';
@@ -240,7 +241,7 @@ CREATE TABLE fare_attributes (
   transfer_duration INTEGER
 );
 COMMENT ON TABLE fare_attributes IS '運賃属性情報';
-COMMENT ON COLUMN fare_attributes.fare_id IS '運賃 ID';
+COMMENT ON COLUMN fare_attributes.fare_id IS '運賃ID';
 COMMENT ON COLUMN fare_attributes.price IS '運賃';
 COMMENT ON COLUMN fare_attributes.currency_type IS '【固定】通貨';
 COMMENT ON COLUMN fare_attributes.payment_method IS '支払いタイミング';
@@ -248,7 +249,7 @@ COMMENT ON COLUMN fare_attributes.transfers IS '乗換';
 COMMENT ON COLUMN fare_attributes.transfer_duration IS '乗換有効期限';
 
 CREATE TABLE fare_rules (
-  fare_id VARCHAR(64) NOT NULL,
+  fare_id VARCHAR(64) NOT NULL PRIMARY KEY,
   route_id VARCHAR(64),
   origin_id VARCHAR(64),
   destination_id VARCHAR(64),
@@ -259,7 +260,7 @@ ALTER TABLE fare_rules ADD FOREIGN KEY (route_id) REFERENCES routes (route_id);
 ALTER TABLE fare_rules ADD FOREIGN KEY (origin_id) REFERENCES stops (stop_id);
 ALTER TABLE fare_rules ADD FOREIGN KEY (destination_id) REFERENCES stops (stop_id);
 COMMENT ON TABLE fare_rules IS '運賃定義情報';
-COMMENT ON COLUMN fare_rules.fare_id IS '運賃 ID';
+COMMENT ON COLUMN fare_rules.fare_id IS '運賃ID';
 COMMENT ON COLUMN fare_rules.route_id IS '経路ID';
 COMMENT ON COLUMN fare_rules.origin_id IS '乗車地ゾーン';
 COMMENT ON COLUMN fare_rules.destination_id IS '降車地ゾーン';
@@ -286,11 +287,12 @@ CREATE TABLE transfers (
   transfer_type SMALLINT NOT NULL CHECK (transfer_type IN (0, 1, 2, 3)),
   min_transfer_time INTEGER
 );
+ALTER TABLE transfers ADD PRIMARY KEY (from_stop_id, to_stop_id);
 ALTER TABLE transfers ADD FOREIGN KEY (from_stop_id) REFERENCES stops (stop_id);
 ALTER TABLE transfers ADD FOREIGN KEY (to_stop_id) REFERENCES stops (stop_id);
 COMMENT ON TABLE transfers IS '乗換情報';
 COMMENT ON COLUMN transfers.from_stop_id IS '乗換元標柱ID';
-COMMENT ON COLUMN transfers.to_stop_id IS '乗換先標柱 ID';
+COMMENT ON COLUMN transfers.to_stop_id IS '乗換先標柱ID';
 COMMENT ON COLUMN transfers.transfer_type IS '乗換タイプ';
 COMMENT ON COLUMN transfers.min_transfer_time IS '乗換時間';
 
@@ -304,7 +306,7 @@ CREATE TABLE feed_info (
 );
 COMMENT ON TABLE feed_info IS '提供情報';
 COMMENT ON COLUMN feed_info.feed_publisher_name IS '提供組織名';
-COMMENT ON COLUMN feed_info.feed_publisher_url IS '提供組織 URL';
+COMMENT ON COLUMN feed_info.feed_publisher_url IS '提供組織URL';
 COMMENT ON COLUMN feed_info.feed_lang IS '【固定】提供言語';
 COMMENT ON COLUMN feed_info.feed_start_date IS '有効期間開始日';
 COMMENT ON COLUMN feed_info.feed_end_date IS '有効期間終了日';
@@ -319,6 +321,7 @@ CREATE TABLE translations (
   record_sub_id VARCHAR(64),
   field_value VARCHAR(128)
 );
+ALTER TABLE translations ADD PRIMARY KEY (language, record_id, record_sub_id, field_value);
 COMMENT ON TABLE translations IS '翻訳情報';
 COMMENT ON COLUMN translations.table_name IS 'テーブル名';
 COMMENT ON COLUMN translations.field_name IS 'フィールド名';
