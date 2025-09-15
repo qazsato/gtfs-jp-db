@@ -104,7 +104,7 @@
                                     id="standard_table"
                                     class="table table-bordered table-striped dataTable"
                                     role="grid"
-                                    data-paging="true"
+                                    data-paging="false"
                                     data-page-length="10"
                                     data-length-change="false">
                                 <thead align='left'>
@@ -412,7 +412,7 @@
                                     id="indexes_table"
                                     class="table table-bordered table-striped dataTable"
                                     role="grid"
-                                    data-paging="true"
+                                    data-paging="false"
                                     data-page-length="10"
                                     data-length-change="false">
                                 <thead>
@@ -448,7 +448,7 @@
                                     id="check_table"
                                     class="table table-bordered table-striped dataTable"
                                     role="grid"
-                                    data-paging="true"
+                                    data-paging="false"
                                     data-page-length="10"
                                     data-length-change="false">
                                 <thead align='left'>
@@ -459,16 +459,16 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>trips_bikes_allowed_check</td>
-                                    <td>(bikes_allowed &#61; ANY (ARRAY[0, 1, 2]))</td>
-                                </tr>
-                                <tr>
                                     <td>trips_direction_id_check</td>
                                     <td>(direction_id &#61; ANY (ARRAY[0, 1]))</td>
                                 </tr>
                                 <tr>
                                     <td>trips_wheelchair_accessible_check</td>
                                     <td>(wheelchair_accessible &#61; ANY (ARRAY[0, 1, 2]))</td>
+                                </tr>
+                                <tr>
+                                    <td>trips_bikes_allowed_check</td>
+                                    <td>(bikes_allowed &#61; ANY (ARRAY[0, 1, 2]))</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -506,7 +506,7 @@
                 </section>
                 <script>
                     var config = {
-                        pagination: true
+                        pagination: false
                     }
                 </script>
             </div>

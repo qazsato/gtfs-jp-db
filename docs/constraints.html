@@ -91,7 +91,7 @@
                                     id="fk_table"
                                     class="table table-bordered table-striped dataTable"
                                     role="grid"
-                                    data-paging="true"
+                                    data-paging="false"
                                     data-page-length="50"
                                     data-length-change="false">
                                 <thead align='left'>
@@ -409,7 +409,7 @@
                                     id="check_table"
                                     class="table table-bordered table-striped dataTable"
                                     role="grid"
-                                    data-paging="true"
+                                    data-paging="false"
                                     data-page-length="10"
                                     data-length-change="false">
                                 <thead align='left'>
@@ -431,11 +431,6 @@
                                         <td>(exact_times &#61; ANY (ARRAY[0, 1]))</td>
                                     </tr>
                                     <tr>
-                                        <td><a href='tables/stops.html'>stops</a></td>
-                                        <td>stops_location_type_check</td>
-                                        <td>(location_type &#61; ANY (ARRAY[0, 1]))</td>
-                                    </tr>
-                                    <tr>
                                         <td><a href='tables/trips.html'>trips</a></td>
                                         <td>trips_bikes_allowed_check</td>
                                         <td>(bikes_allowed &#61; ANY (ARRAY[0, 1, 2]))</td>
@@ -449,6 +444,11 @@
                                         <td><a href='tables/trips.html'>trips</a></td>
                                         <td>trips_wheelchair_accessible_check</td>
                                         <td>(wheelchair_accessible &#61; ANY (ARRAY[0, 1, 2]))</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href='tables/stops.html'>stops</a></td>
+                                        <td>stops_location_type_check</td>
+                                        <td>(location_type &#61; ANY (ARRAY[0, 1]))</td>
                                     </tr>
                                     <tr>
                                         <td><a href='tables/translations.html'>translations</a></td>
@@ -522,7 +522,7 @@
                 </section>
                 <script>
                     var config = {
-                        pagination: true
+                        pagination: false
                     }
                 </script>
             </div>
