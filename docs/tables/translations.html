@@ -175,7 +175,7 @@
                                 <tr>
                                     <td><span id="translation">translation</span></td>
                                     <td>varchar</td>
-                                    <td>255</td>
+                                    <td>128</td>
                                     <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -226,7 +226,7 @@
                                 <tr>
                                     <td><span id="field_value">field_value</span></td>
                                     <td>varchar</td>
-                                    <td>255</td>
+                                    <td>128</td>
                                     <td title='nullable'>√</td>
                                     <td title=''></td>
                                     <td>null</td>
@@ -239,6 +239,38 @@
                                         </table>
                                     </td>
                                     <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 class="box-title">Check Constraints</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table
+                                    id="check_table"
+                                    class="table table-bordered table-striped dataTable"
+                                    role="grid"
+                                    data-paging="true"
+                                    data-page-length="10"
+                                    data-length-change="false">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Constraint</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>translations_table_name_check</td>
+                                    <td>((table_name)::text &#61; ANY ((ARRAY[&#39;agency&#39;::character varying, &#39;stops&#39;::character varying, &#39;routes&#39;::character varying, &#39;trips&#39;::character varying, &#39;stop̲times&#39;::character varying, &#39;feed̲info&#39;::character varying])::text[]))</td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -114,7 +114,7 @@
 <polygon fill="none" stroke="#000000" points="45,-423 45,-445 147,-445 147,-423 45,-423"/>
 <text text-anchor="start" x="65" y="-430.1" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">translation</text>
 <polygon fill="none" stroke="#000000" points="147,-423 147,-445 214,-445 214,-423 147,-423"/>
-<text text-anchor="start" x="149.9365" y="-430.7" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">varchar[255]</text>
+<text text-anchor="start" x="149.9365" y="-430.7" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">varchar[128]</text>
 <polygon fill="none" stroke="#000000" points="45,-401 45,-423 147,-423 147,-401 45,-401"/>
 <text text-anchor="start" x="65" y="-408.1" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">record_id</text>
 <polygon fill="none" stroke="#000000" points="147,-401 147,-423 214,-423 214,-401 147,-401"/>
@@ -126,7 +126,7 @@
 <polygon fill="none" stroke="#000000" points="45,-357 45,-379 147,-379 147,-357 45,-357"/>
 <text text-anchor="start" x="65" y="-364.1" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">field_value</text>
 <polygon fill="none" stroke="#000000" points="147,-357 147,-379 214,-379 214,-357 147,-357"/>
-<text text-anchor="start" x="149.9365" y="-364.7" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">varchar[255]</text>
+<text text-anchor="start" x="149.9365" y="-364.7" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">varchar[128]</text>
 <polygon fill="#ffffff" stroke="transparent" points="45,-338 45,-357 100,-357 100,-338 45,-338"/>
 <polygon fill="none" stroke="#000000" points="45,-338 45,-357 100,-357 100,-338 45,-338"/>
 <text text-anchor="start" x="48" y="-344.1" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">&lt; 0</text>
