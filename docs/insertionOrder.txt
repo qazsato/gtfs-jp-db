@@ -1,0 +1,17 @@
+stops
+agency
+calendar
+fare_attributes
+office_jp
+pattern_jp
+shapes
+routes
+trips
+agency_jp
+frequencies
+stop_times
+transfers
+fare_rules
+calendar_dates
+feed_info
+translations
