@@ -65,8 +65,8 @@ COMMENT ON COLUMN stops.zone_id IS '運賃エリアID';
 COMMENT ON COLUMN stops.stop_url IS '停留所・標柱URL';
 COMMENT ON COLUMN stops.location_type IS '停留所・標柱区分';
 COMMENT ON COLUMN stops.parent_station IS '親停留所情報';
-COMMENT ON COLUMN stops.stop_timezone IS 'タイムゾーン';
-COMMENT ON COLUMN stops.wheelchair_boarding IS '車椅子情報';
+COMMENT ON COLUMN stops.stop_timezone IS '【設定不要】タイムゾーン';
+COMMENT ON COLUMN stops.wheelchair_boarding IS '【設定不要】車椅子情報';
 COMMENT ON COLUMN stops.platform_code IS 'のりば情報';
 
 CREATE TABLE routes (
@@ -106,7 +106,7 @@ COMMENT ON COLUMN shapes.shape_id IS '描画ID';
 COMMENT ON COLUMN shapes.shape_pt_lat IS '描画緯度';
 COMMENT ON COLUMN shapes.shape_pt_lon IS '描画経度';
 COMMENT ON COLUMN shapes.shape_pt_sequence IS '描画順序';
-COMMENT ON COLUMN shapes.shape_dist_traveled IS '描画距離';
+COMMENT ON COLUMN shapes.shape_dist_traveled IS '【設定不要】描画距離';
 
 CREATE TABLE office_jp (
   office_id VARCHAR(64) PRIMARY KEY,
@@ -264,7 +264,7 @@ COMMENT ON COLUMN fare_rules.fare_id IS '運賃ID';
 COMMENT ON COLUMN fare_rules.route_id IS '経路ID';
 COMMENT ON COLUMN fare_rules.origin_id IS '乗車地ゾーン';
 COMMENT ON COLUMN fare_rules.destination_id IS '降車地ゾーン';
-COMMENT ON COLUMN fare_rules.contains_id IS '通過ゾーン';
+COMMENT ON COLUMN fare_rules.contains_id IS '【設定不要】通過ゾーン';
 
 CREATE TABLE frequencies (
   trip_id VARCHAR(64) NOT NULL,
