@@ -37,9 +37,9 @@
 </g>
 </g>
 <!-- trips -->
-<g id="node5" class="node">
+<g id="node4" class="node">
 <title>trips</title>
-<g id="a_node5"><a xlink:href="../../tables/trips.html" xlink:title="trips" target="_top">
+<g id="a_node4"><a xlink:href="../../tables/trips.html" xlink:title="trips" target="_top">
 <polygon fill="#ffffff" stroke="transparent" points="393,-347.2 393,-540.2 545,-540.2 545,-347.2 393,-347.2"/>
 <polygon fill="#f5f5f5" stroke="transparent" points="393,-516.7 393,-539.7 545,-539.7 545,-516.7 393,-516.7"/>
 <polygon fill="none" stroke="#000000" points="393,-516.7 393,-539.7 545,-539.7 545,-516.7 393,-516.7"/>
@@ -172,32 +172,6 @@
 </a>
 </g>
 </g>
-<!-- stops -->
-<g id="node4" class="node">
-<title>stops</title>
-<g id="a_node4"><a xlink:href="../../tables/stops.html" xlink:title="stops" target="_top">
-<polygon fill="#ffffff" stroke="transparent" points="396.5,-243.2 396.5,-326.2 541.5,-326.2 541.5,-243.2 396.5,-243.2"/>
-<polygon fill="#f5f5f5" stroke="transparent" points="397,-302.7 397,-325.7 542,-325.7 542,-302.7 397,-302.7"/>
-<polygon fill="none" stroke="#000000" points="397,-302.7 397,-325.7 542,-325.7 542,-302.7 397,-302.7"/>
-<text text-anchor="start" x="402" y="-311.3" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="#000000">stops</text>
-<text text-anchor="start" x="507.0437" y="-310.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">[table]</text>
-<polygon fill="none" stroke="#000000" points="397,-280.7 397,-302.7 542,-302.7 542,-280.7 397,-280.7"/>
-<image xlink:href="../../images/primaryKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="402" y="-297.7"/>
-<text text-anchor="start" x="417" y="-287.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">stop_id</text>
-<polygon fill="none" stroke="#000000" points="397,-261.7 397,-280.7 542,-280.7 542,-261.7 397,-261.7"/>
-<text text-anchor="start" x="400" y="-267.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">...</text>
-<polygon fill="#ffffff" stroke="transparent" points="397,-242.7 397,-261.7 459,-261.7 459,-242.7 397,-242.7"/>
-<polygon fill="none" stroke="#000000" points="397,-242.7 397,-261.7 459,-261.7 459,-242.7 397,-242.7"/>
-<text text-anchor="start" x="400" y="-248.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000"> &#160;</text>
-<polygon fill="#ffffff" stroke="transparent" points="459,-242.7 459,-261.7 496,-261.7 496,-242.7 459,-242.7"/>
-<polygon fill="none" stroke="#000000" points="459,-242.7 459,-261.7 496,-261.7 496,-242.7 459,-242.7"/>
-<text text-anchor="start" x="486.8862" y="-248.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000"> &#160;</text>
-<polygon fill="#ffffff" stroke="transparent" points="496,-242.7 496,-261.7 542,-261.7 542,-242.7 496,-242.7"/>
-<polygon fill="none" stroke="#000000" points="496,-242.7 496,-261.7 542,-261.7 542,-242.7 496,-242.7"/>
-<text text-anchor="start" x="523.4053" y="-248.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">5 &gt;</text>
-</a>
-</g>
-</g>
 <!-- trips&#45;&gt;routes -->
 <g id="edge14" class="edge">
 <title>trips:w&#45;&gt;routes:e</title>
@@ -310,6 +284,32 @@
 <path fill="none" stroke="#000000" d="M378.4226,-393.671C311.6593,-372.3804 418.8553,-190.7 329,-190.7"/>
 <polygon fill="#000000" stroke="#000000" points="385.0764,-394.5971 392.5037,-399.2656 389.0382,-395.1485 393,-395.7 393,-395.7 393,-395.7 389.0382,-395.1485 393.4963,-392.1344 385.0764,-394.5971 385.0764,-394.5971"/>
 <ellipse fill="none" stroke="#000000" cx="381.9069" cy="-394.1559" rx="3.2" ry="3.2"/>
+</g>
+<!-- stops -->
+<g id="node5" class="node">
+<title>stops</title>
+<g id="a_node5"><a xlink:href="../../tables/stops.html" xlink:title="stops" target="_top">
+<polygon fill="#ffffff" stroke="transparent" points="396.5,-243.2 396.5,-326.2 541.5,-326.2 541.5,-243.2 396.5,-243.2"/>
+<polygon fill="#f5f5f5" stroke="transparent" points="397,-302.7 397,-325.7 542,-325.7 542,-302.7 397,-302.7"/>
+<polygon fill="none" stroke="#000000" points="397,-302.7 397,-325.7 542,-325.7 542,-302.7 397,-302.7"/>
+<text text-anchor="start" x="402" y="-311.3" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="#000000">stops</text>
+<text text-anchor="start" x="507.0437" y="-310.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">[table]</text>
+<polygon fill="none" stroke="#000000" points="397,-280.7 397,-302.7 542,-302.7 542,-280.7 397,-280.7"/>
+<image xlink:href="../../images/primaryKeys.png" width="11px" height="12px" preserveAspectRatio="xMinYMin meet" x="402" y="-297.7"/>
+<text text-anchor="start" x="417" y="-287.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">stop_id</text>
+<polygon fill="none" stroke="#000000" points="397,-261.7 397,-280.7 542,-280.7 542,-261.7 397,-261.7"/>
+<text text-anchor="start" x="400" y="-267.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">...</text>
+<polygon fill="#ffffff" stroke="transparent" points="397,-242.7 397,-261.7 459,-261.7 459,-242.7 397,-242.7"/>
+<polygon fill="none" stroke="#000000" points="397,-242.7 397,-261.7 459,-261.7 459,-242.7 397,-242.7"/>
+<text text-anchor="start" x="400" y="-248.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000"> &#160;</text>
+<polygon fill="#ffffff" stroke="transparent" points="459,-242.7 459,-261.7 496,-261.7 496,-242.7 459,-242.7"/>
+<polygon fill="none" stroke="#000000" points="459,-242.7 459,-261.7 496,-261.7 496,-242.7 459,-242.7"/>
+<text text-anchor="start" x="486.8862" y="-248.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000"> &#160;</text>
+<polygon fill="#ffffff" stroke="transparent" points="496,-242.7 496,-261.7 542,-261.7 542,-242.7 496,-242.7"/>
+<polygon fill="none" stroke="#000000" points="496,-242.7 496,-261.7 542,-261.7 542,-242.7 496,-242.7"/>
+<text text-anchor="start" x="523.4053" y="-248.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#000000">5 &gt;</text>
+</a>
+</g>
 </g>
 <!-- fare_rules -->
 <g id="node6" class="node">
@@ -467,19 +467,19 @@
 </a>
 </g>
 </g>
-<!-- stop_times&#45;&gt;stops -->
-<g id="edge8" class="edge">
-<title>stop_times:w&#45;&gt;stops:e</title>
-<path fill="none" stroke="#000000" d="M580.4134,-402.1632C549.8997,-382.9212 591.8981,-291.7 542,-291.7"/>
-<polygon fill="#000000" stroke="#000000" points="586.7408,-403.7518 593.6233,-409.1916 590.6204,-404.7259 594.5,-405.7 594.5,-405.7 594.5,-405.7 590.6204,-404.7259 595.3767,-402.2084 586.7408,-403.7518 586.7408,-403.7518"/>
-<ellipse fill="none" stroke="#000000" cx="583.6372" cy="-402.9725" rx="3.2" ry="3.2"/>
-</g>
 <!-- stop_times&#45;&gt;trips -->
 <g id="edge9" class="edge">
 <title>stop_times:w&#45;&gt;trips:e</title>
 <path fill="none" stroke="#000000" d="M580.6043,-432.3457C561.5015,-449.1376 579.9636,-505.7 545,-505.7"/>
 <polygon fill="#000000" stroke="#000000" points="586.9128,-430.2366 595.6415,-431.1142 590.7064,-428.9683 594.5,-427.7 594.5,-427.7 594.5,-427.7 590.7064,-428.9683 593.3585,-424.2858 586.9128,-430.2366 586.9128,-430.2366"/>
 <ellipse fill="none" stroke="#000000" cx="583.8779" cy="-431.2513" rx="3.2" ry="3.2"/>
+</g>
+<!-- stop_times&#45;&gt;stops -->
+<g id="edge8" class="edge">
+<title>stop_times:w&#45;&gt;stops:e</title>
+<path fill="none" stroke="#000000" d="M580.4134,-402.1632C549.8997,-382.9212 591.8981,-291.7 542,-291.7"/>
+<polygon fill="#000000" stroke="#000000" points="586.7408,-403.7518 593.6233,-409.1916 590.6204,-404.7259 594.5,-405.7 594.5,-405.7 594.5,-405.7 590.6204,-404.7259 595.3767,-402.2084 586.7408,-403.7518 586.7408,-403.7518"/>
+<ellipse fill="none" stroke="#000000" cx="583.6372" cy="-402.9725" rx="3.2" ry="3.2"/>
 </g>
 <!-- transfers -->
 <g id="node14" class="node">
