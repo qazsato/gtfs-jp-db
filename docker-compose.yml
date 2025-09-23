@@ -10,9 +10,9 @@ services:
     ports:
       - "5432:5432"
   schemaspy:
-    image: schemaspy/schemaspy:6.2.4
+    build: .
     platform: linux/amd64
     volumes:
-      - ./schemaspy/config:/config
+      - ./schemaspy/config/schemaspy.properties:/config/schemaspy.properties:ro
       - ./docs:/output
     command: java -jar schemaspy.jar -configFile /config/schemaspy.properties -u ${POSTGRES_USER} -p ${POSTGRES_PASSWORD}
